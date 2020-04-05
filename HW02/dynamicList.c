@@ -6,18 +6,17 @@ struct stack {
        struct stack *next;
 };
 
-struct stack *create(struct stack *, int);
-struct stack *createfirst(struct stack *, int);
-void list(struct stack *);
-void del(struct stack *);
-void delAll(struct stack *);
-int seek(struct stack *, int);
+struct stack *create(struct stack *, int);//add item
+struct stack *createfirst(struct stack *, int);//adding the first item
+void list(struct stack *);//viewing a list
+void del(struct stack *);//deleting the first element
+void delAll(struct stack *);//deleting the entire list
+int seek(struct stack *, int);//search for an item in the list
 
 main() {
-    int i, n, m, e;
+    int n;
     char str[80];
     struct stack *head;
-    struct stack *k;
     head = NULL;
     printf("Hello!\n ");
     printf("\nAdd the first item in the list: ");
@@ -146,8 +145,7 @@ void delAll(struct stack *p){
 }
 
 int seek(struct stack *p, int x) {
-    int h = 0;
-    int flag = -1;
+    int h = 0, flag = -1;
      while (p != NULL) {
         h++;
         if (p->data == x) {flag = h; break;}
