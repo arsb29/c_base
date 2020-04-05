@@ -6,12 +6,12 @@ struct stack {
        struct stack *next;
 };
 
-struct stack *create(struct stack *, int);//add item
-struct stack *createfirst(struct stack *, int);//adding the first item
-void list(struct stack *);//viewing a list
-void del(struct stack *);//deleting the first element
-void delAll(struct stack *);//deleting the entire list
-int seek(struct stack *, int);//search for an item in the list
+struct stack *create(struct stack *, int);/*add item*/
+struct stack *createfirst(struct stack *, int);/*adding the first item*/
+void list(struct stack *);/*viewing a list*/
+void del(struct stack *);/*deleting the first element*/
+void delAll(struct stack *);/*deleting the entire list*/
+int seek(struct stack *, int);/*search for an item in the list*/
 
 main() {
     int n;
@@ -102,6 +102,7 @@ main() {
 
         }
     }
+    free(head);
     printf("\nGoodbye!\n");
 }
 
