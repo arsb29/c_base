@@ -15,29 +15,29 @@ int seek(struct stack *, int);/*search for an item in the list*/
 
 main() {
     int n;
-    char str[80];
+    char str[256];
     struct stack *head;
     head = NULL;
     printf("Hello!\n ");
     printf("\nAdd the first item in the list: ");
-    scanf("%s", &str);
+    scanf("%255s", str);
     n = atof(str);
     head = createfirst(head, n);
 
     n = 0;
     while(n != 6) {
         printf("\n1. Add item\n2. Delete last item\n3. See list\n4. Delete all\n5. Seek item\n6. Exit\n\nOption: ");
-        scanf("%s", &str);
+        scanf("%255s", str);
         n = atof(str);
         while (n<1 || n>6) {
             printf("\nError. Try again\nOption: ");
-            scanf("%s", &str);
+            scanf("%255s", str);
             n = atof(str);
         }
         switch(n) {
         case 1:
             printf("\nAdd new item: ");
-            scanf("%s", &str);
+            scanf("%255s", str);
             n = atof(str);
             create(head, n);
             break;
@@ -46,17 +46,17 @@ main() {
             if (head->next == NULL) {
                 printf("\nLast element was deleted\n");
                 printf("\nList is empty\n\n1. Add new item\n2. Exit\n\nOption: ");
-                scanf("%s", &str);
+                scanf("%255s", str);
                 n = atof(str);
                 while (n<1 || n>2) {
                     printf("\nError. Try again\nOption: ");
-                    scanf("%s", &str);
+                    scanf("%255s", str);
                     n = atof(str);
                 }
                 if (n==2) {n = 6; break;}
                 else {
                     printf("\nAdd the first item in the list: ");
-                    scanf("%s", &str);
+                    scanf("%255s", str);
                     n = atof(str);
                     head = createfirst(head, n);
                 }
@@ -75,17 +75,17 @@ main() {
         case 4:
             delAll(head);
             printf("\nList is empty\n\n1. Add new item\n2. Exit\n\nOption: ");
-            scanf("%s", &str);
+            scanf("%255s", str);
             n = atof(str);
             while (n<1 || n>2) {
                 printf("\nError. Try again\nOption: ");
-                scanf("%s", &str);
+                scanf("%255s", str);
                 n = atof(str);
             }
             if (n==2) {n = 6; break;}
             else {
                 printf("\nAdd the first item in the list: ");
-                scanf("%s", &str);
+                scanf("%255s", str);
                 n = atof(str);
                 head = createfirst(head, n);
             }
@@ -93,7 +93,7 @@ main() {
 
         case 5:
             printf("\nWhich item to find: ");
-            scanf("%s", &str);
+            scanf("%255s", str);
             n = atof(str);
             int p = seek(head,n);
             if (p == -1)  printf("\nOops... This item does not exist\n");
